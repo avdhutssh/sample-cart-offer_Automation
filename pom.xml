@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<rest-assured.version>4.3.3</rest-assured.version>
 	</properties>
 
 	<dependencies>
@@ -50,88 +51,77 @@
 			<version>1.16.22</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.groovy</groupId>
-			<artifactId>groovy</artifactId>
-			<version>4.0.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.groovy</groupId>
-			<artifactId>groovy-xml</artifactId>
-			<version>4.0.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.groovy</groupId>
-			<artifactId>groovy-json</artifactId>
-			<version>4.0.6</version>
-		</dependency>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>4.4.0</version>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.codehaus.groovy</groupId>
-					<artifactId>groovy</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.codehaus.groovy</groupId>
-					<artifactId>groovy-xml</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>json-path</artifactId>
-			<version>4.4.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>xml-path</artifactId>
-			<version>4.4.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured-common</artifactId>
-			<version>4.4.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.json</groupId>
-			<artifactId>jakarta.json-api</artifactId>
-			<version>2.1.3</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.14.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.14.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>2.14.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>3.24.2</version>
-			<scope>test</scope>
-		</dependency>
+        <!-- Groovy dependencies (compatible with Rest Assured) -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-xml</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-json</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+        
+        <!-- Rest Assured dependencies (downgraded to 4.3.3 for better compatibility) -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>xml-path</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured-common</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Testing frameworks -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- XML binding dependencies -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+
+
 	</dependencies>
 
 	<build>
