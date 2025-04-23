@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "919c15b2-43ef-439c-a3a2-3a2d6ba581a8",
+		"name": "Lucidity_Assigment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16606482"
+	},
+	"item": [
+		{
+			"name": "Apply_Offer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cart_value\": 400.0,\r\n    \"user_id\": 1,\r\n    \"restaurant_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}:{{port_local}}/api/v1/cart/apply_offer",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port_local}}",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"apply_offer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_Offer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"restaurant_id\": 1,\r\n  \"offer_type\": \"FLATP\",\r\n  \"offer_value\": 10,\r\n  \"customer_segment\": [\"p1\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}:{{port_local}}/api/v1/offer",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port_local}}",
+					"path": [
+						"api",
+						"v1",
+						"offer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_User_Segment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}:{{port_mock_server}}/api/v1/user_segment?user_id=1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"port": "{{port_mock_server}}",
+					"path": [
+						"api",
+						"v1",
+						"user_segment"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port_mock_server",
+			"value": "1080",
+			"type": "string"
+		},
+		{
+			"key": "baseurl",
+			"value": "http://127.0.0.1",
+			"type": "string"
+		},
+		{
+			"key": "port_local",
+			"value": "9001",
+			"type": "string"
+		}
+	]
+}
