@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.automation.SampleCartOffer._01_smokeTest"/>
+            <class name="com.automation.SampleCartOffer.tests._01_smokeTest"/>
         </classes>
     </test>
     <test name="Regression Tests">
@@ -17,7 +17,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.automation.SampleCartOffer._02_RegressionTest"/>
+            <class name="com.automation.SampleCartOffer.tests._02_RegressionTest"/>
         </classes>
     </test>
     <test name="Integration Tests">
@@ -27,7 +27,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.automation.SampleCartOffer._03_IntegrationTest"/>
+            <class name="com.automation.SampleCartOffer.tests._03_IntegrationTest"/>
         </classes>
     </test>
     <test name="Negative Tests">
@@ -37,7 +37,7 @@
             </run>
         </groups>
         <classes>
-            <class name="com.automation.SampleCartOffer._04_NegativeTest"/>
+            <class name="com.automation.SampleCartOffer.tests._04_NegativeTest"/>
         </classes>
     </test>
 </suite>
