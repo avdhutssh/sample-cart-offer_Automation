@@ -1,6 +1,7 @@
 package com.automation.SampleCartOffer.tests;
 
 import com.automation.SampleCartOffer.Utils.PropertyReader;
+import com.automation.SampleCartOffer.Utils.TestListener;
 import com.automation.SampleCartOffer.pojo.AddOffer;
 import com.automation.SampleCartOffer.pojo.ApplyOffer;
 import com.automation.SampleCartOffer.specs.RequestSpecificationBuilder;
@@ -11,10 +12,12 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
+
+//@Listeners(TestListener.class)
 public class _00_BaseTest {
     protected static final Logger log = LogManager.getLogger(_00_BaseTest.class);
     protected static final PropertyReader propertyReader = PropertyReader.getInstance();
