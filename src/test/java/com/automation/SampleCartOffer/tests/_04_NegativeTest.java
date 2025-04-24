@@ -21,7 +21,7 @@ public class _04_NegativeTest extends _00_BaseTest {
 
     @Test(groups = "Negative")
     @Story("User Validation")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Verify behavior when non-existent user tries to apply an offer")
     public void TC31_verifyNonExistentUser() {
         log.info("Apply offer with non-existent user");
@@ -33,7 +33,7 @@ public class _04_NegativeTest extends _00_BaseTest {
         int statusCode = response.getStatusCode();
 
         if (statusCode >= 400) {
-            log.info("Test passed: Non-existent user resulted in error response");
+            log.error("Test failed: Non-existent user resulted in error response");
             AllureReportUtils.logStep("Received error status code as expected: " + statusCode);
             AssertionUtils.verifyStatusCode(response, statusCode);
             AllureReportUtils.logVerification("Non-existent user correctly resulted in error response");
@@ -50,7 +50,7 @@ public class _04_NegativeTest extends _00_BaseTest {
 
     @Test(groups = "Negative")
     @Story("Input Validation")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Verify behavior when negative cart value is submitted")
     public void TC33_verifyNegativeCartValue() {
         log.info("Apply offer to negative cart value");
@@ -62,7 +62,7 @@ public class _04_NegativeTest extends _00_BaseTest {
         int statusCode = response.getStatusCode();
 
         if (statusCode >= 400) {
-            log.info("Test passed: Negative cart value resulted in error response");
+            log.error("Test failed: Negative cart value resulted in error response");
             AllureReportUtils.logStep("Received error status code as expected: " + statusCode);
             AssertionUtils.verifyStatusCode(response, statusCode);
             AllureReportUtils.logVerification("Negative cart value correctly resulted in error response");

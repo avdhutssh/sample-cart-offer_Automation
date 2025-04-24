@@ -60,8 +60,8 @@ public class _02_RegressionTest extends _00_BaseTest {
 
     @Test(groups = "Critical_Regression")
     @Story("Boundary Cases")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Verify FLATX offer greater than cart value results in negative value")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Verify FLATX offer greater than cart value results in 0 cart value")
     public void TC07_verifyFlatXOfferGreaterThanCartValue() {
         log.info("Apply FLATX offer greater than cart value");
         AllureReportUtils.logStep("Starting test to verify FLATX offer greater than cart value");
@@ -71,10 +71,10 @@ public class _02_RegressionTest extends _00_BaseTest {
 
         response.then()
                 .spec(ResponseSpecificationBuilder.getSuccessResponseSpec())
-                .body("cart_value", equalTo(-100));
+                .body("cart_value", equalTo(0));
 
-        log.info("Test passed: FLATX offer greater than cart value resulting in -100 cart value");
-        AllureReportUtils.logVerification("FLATX offer greater than cart value resulting in -100 cart value");
+        log.info("Test passed: FLATX offer greater than cart value resulting in 0 cart value");
+        AllureReportUtils.logVerification("FLATX offer greater than cart value resulting in 0 cart value");
     }
 
     @Test(groups = "Critical_Regression")
@@ -213,7 +213,7 @@ public class _02_RegressionTest extends _00_BaseTest {
 
     @Test(groups = "Impacted_Regression")
     @Story("Edge Cases")
-    @Severity(SeverityLevel.MINOR)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Verify offer applied to zero cart value")
     public void TC20_verifyZeroCartValue() {
         log.info("Apply offer to zero cart value");
@@ -224,10 +224,10 @@ public class _02_RegressionTest extends _00_BaseTest {
 
         response.then()
                 .spec(ResponseSpecificationBuilder.getSuccessResponseSpec())
-                .body("cart_value", equalTo(-10));
+                .body("cart_value", equalTo(0));
 
-        log.info("Test passed: Offer applied to zero cart value results in -10");
-        AllureReportUtils.logVerification("Offer applied to zero cart value results in -10");
+        log.info("Test passed: Offer applied to zero cart value results in 0");
+        AllureReportUtils.logVerification("Offer applied to zero cart value results in 0");
     }
 
     @Test(groups = "Impacted_Regression")
@@ -253,7 +253,7 @@ public class _02_RegressionTest extends _00_BaseTest {
 
     @Test(groups = "Impacted_Regression")
     @Story("Edge Cases")
-    @Severity(SeverityLevel.MINOR)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Verify offer applied to fractional cart value")
     public void TC22_verifyFractionalCartValue() {
         log.info("Apply offer to fractional cart value");
@@ -265,7 +265,7 @@ public class _02_RegressionTest extends _00_BaseTest {
         AssertionUtils.verifyStatusCode(response, 200);
 
         double cartValue = response.jsonPath().getDouble("cart_value");
-        assertEquals(cartValue, 89.0);
+        assertEquals(cartValue, 89.99);
 
         log.info("Test passed: FLATX offer correctly applied to fractional cart value");
         AllureReportUtils.logVerification("FLATX offer correctly applied to fractional cart value");
@@ -273,7 +273,7 @@ public class _02_RegressionTest extends _00_BaseTest {
 
     @Test(groups = "Impacted_Regression")
     @Story("Edge Cases")
-    @Severity(SeverityLevel.MINOR)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Verify fractional offer amount application")
     public void TC23_verifyFractionalOfferValue() {
         log.info("Apply fractional offer amount");
@@ -285,7 +285,7 @@ public class _02_RegressionTest extends _00_BaseTest {
         AssertionUtils.verifyStatusCode(response, 200);
 
         double cartValue = response.jsonPath().getDouble("cart_value");
-        assertEquals(cartValue, 10);
+        assertEquals(cartValue, 9.5);
 
         log.info("Test passed: Fractional FLATX offer correctly applied");
         AllureReportUtils.logVerification("Fractional FLATX offer correctly applied");
@@ -293,7 +293,7 @@ public class _02_RegressionTest extends _00_BaseTest {
 
     @Test(groups = "Impacted_Regression")
     @Story("Edge Cases")
-    @Severity(SeverityLevel.MINOR)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Verify negative offer value handling")
     public void TC24_verifyNegativeOfferValue() {
         log.info("Apply negative offer value (should be rejected)");
@@ -302,7 +302,7 @@ public class _02_RegressionTest extends _00_BaseTest {
         try {
             addOffer(24, "FLATX", -10, new String[]{"p1"});
             Response response = applyOffer(24, 1, 100);
-            log.info("Negative offer value was accepted by API. Cart value: " +
+            log.error("Negative offer value was accepted by API. Cart value: " +
                     response.jsonPath().getDouble("cart_value"));
             AllureReportUtils.logStep("Negative offer value was unexpectedly accepted");
         } catch (AssertionError e) {
@@ -332,7 +332,7 @@ public class _02_RegressionTest extends _00_BaseTest {
 
     @Test(groups = "Impacted_Regression")
     @Story("Segmentation Rules")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Verify offer handling for users in multiple segments")
     public void TC26_verifyMultipleSegmentEligibility() {
         log.info("User eligible for offers in different segments");

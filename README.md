@@ -21,7 +21,7 @@
 
 ## 📖 Introduction
 
-This repository contains a REST API test automation framework developed using REST Assured and Java, managing dependencies with Maven. The framework is designed to automate test cases for the Cart Offer API service, which applies different types of discounts (FLATX, FLATP) based on restaurant, user, and segment eligibility.
+This repository contains a REST API test automation framework developed using REST Assured and Java, managing dependencies with Maven. The framework is designed to automate test cases for the Cart Offer API service, which applies different types of discounts (FLATX, FLATP) based on restaurant, user and segment eligibility.
 
 The framework follows best practices such as:
 - **Page Object Model (POM)** approach adapted for API testing
