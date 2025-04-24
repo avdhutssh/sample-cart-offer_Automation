@@ -13,7 +13,7 @@
 - [Introduction](#-introduction)
 - [Prerequisites](#️-prerequisites)
 - [Project Structure](#-project-structure)
-- [Getting Started](#rest-api-test-automation-framework-for-cart-offer-service)
+- [Getting Started](#️-getting-started)
 - [Test Execution](#-test-execution)
 - [Reporting](#-reporting)
 - [Future Enhancements](#-future-enhancements)
@@ -83,13 +83,13 @@ src
 └── testng.xml                         # Suite Execution file
 └── mockserver                         # Mock server configuration
     └── docker-compose.yml            # Docker setup for mock service
-
+```
 ## ▶️ Getting Started
 
 1. Clone the repository:
 
 ```bash
-git clone git clone https://github.com/avdhutssh/sample-cart-offer_Automation.git
+git clone https://github.com/avdhutssh/sample-cart-offer_Automation.git
 ```
 
 2. Navigate to the project directory:
