@@ -168,9 +168,26 @@ You can also capture screenshots for failed test cases and view them in the Exte
 
 ![Allure Report](/Misc/AllureReport.png)
 
+
+## 🤖 CI/CD Using Jenkins
+
+### 1. Jenkins Integration
+
+You can integrate the project with Jenkins for Continuous Integration. Follow these steps:
+
+1. Install Maven, Allure, TestNg, HTML Publisher plugins
+2. Set up a Maven Project Dashboard in Jenkins.
+3. Clone the GitHub repository under Source Code Management
+4. In the Build section, add the following command to run the tests:
+   ```bash
+   mvn test
+   ```
+
+![Jenkins-Execution](/Misc/Jenkins.png)
+
+
 ## 🔮 Future Enhancements
-1. CI/CD Integration
-2. Data Driven Testing
+Data Driven Testing
 
 ## 📧 Contacts
 
